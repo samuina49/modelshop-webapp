@@ -9,7 +9,7 @@ const Header = () => {
   const navigate = useNavigate();
 
   // 1. ดึง State จาก Redux
-  const { isLoggedIn } = useSelector((state: RootState) => state.auth);
+  const { isLoggedIn, user } = useSelector((state: RootState) => state.auth);
   const cartItemCount = useSelector((state: RootState) => state.cart.items.length);
 
   // 2. สร้างฟังก์ชัน Logout สำหรับปุ่มใน Header
@@ -37,9 +37,13 @@ const Header = () => {
           <Link to="/upload" className="text-gray-600 hover:text-blue-500 transition-colors">
             อัปโหลด
           </Link>
-          <Link to="/admin" className="text-gray-600 hover:text-blue-500 transition-colors">
-            จัดการ (Admin)
-          </Link>
+          {/* 2. (สำคัญ!) เพิ่มเงื่อนไขเช็ก isAdmin ตรงนี้ */}
+          {/* "ถ้าล็อกอินแล้ว และ user.isAdmin เป็น true" */}
+          {isLoggedIn && user?.isAdmin && (
+            <Link to="/admin" className="text-slate-600 hover:text-blue-600 transition-colors duration-200 font-medium">
+              จัดการ (Admin)
+            </Link>
+          )}
 
           {/* 3. ส่วน Dynamic ที่เปลี่ยนตาม isLoggedIn */}
           {isLoggedIn ? (
