@@ -20,7 +20,8 @@ import AdminPage from './pages/AdminPage.tsx';
 import AdminProtectedRoute from './components/AdminProtectedRoute.tsx';
 import ForgotPasswordPage from './pages/ForgotPasswordPage.tsx'; 
 import ProfilePage from './pages/ProfilePage.tsx';      
-import ShopPage from './pages/ShopPage.tsx';       
+import ShopPage from './pages/ShopPage.tsx'; 
+import CheckoutPage from './pages/CheckoutPage.tsx';      
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,7 @@ const router = createBrowserRouter([
       },
       { path: 'forgot-password', element: <ForgotPasswordPage /> }, // <-- 3. เพิ่ม
       { path: 'profile', element: <ProfilePage /> },             // <-- 4. เพิ่ม
+      { path: 'checkout', element: <CheckoutPage /> },
     ],
   },
 ]);

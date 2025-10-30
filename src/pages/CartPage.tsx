@@ -52,12 +52,13 @@ const CartPage = () => {
               <span className="text-2xl font-bold text-gray-800">ราคารวม:</span>
               <span className="text-3xl font-extrabold text-blue-600">{totalPrice} บาท</span>
             </div>
-            <button
-              className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg text-lg
+            <Link
+              to="/checkout" // 2. ลิงก์ไปหน้า checkout
+              className="block w-full text-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg text-lg
                          transition-all duration-300 transform hover:scale-105"
             >
-              ดำเนินการสั่งซื้อ (จำลอง)
-            </button>
+              ดำเนินการสั่งซื้อ
+            </Link>
           </div>
         </div>
       )}

@@ -1,5 +1,5 @@
 // src/mockData.ts
-import { type IModel } from './types';
+import { type IModel, type IOrder } from './types';
 
 export const mockModels: IModel[] = [
   {
@@ -25,5 +25,22 @@ export const mockModels: IModel[] = [
     price: 950,
     imageUrl: 'https://img.cgtrader.com/items/4089069/9638b971a1/large/cyberpunk-girl-full-character-low-poly-3d-model-low-poly-obj-fbx-stl-blend.jpg',
     fileUrl: '#',
+  },
+];
+
+export const mockOrders: IOrder[] = [
+  {
+    id: 'ORDER-001',
+    date: '2025-10-30',
+    // (จำลองว่า Order นี้ซื้อ 2 ชิ้น)
+    items: [mockModels[0], mockModels[1]], 
+    total: mockModels[0].price + mockModels[1].price,
+  },
+  {
+    id: 'ORDER-002',
+    date: '2025-10-25',
+    // (จำลองว่า Order นี้ซื้อ 1 ชิ้น)
+    items: [mockModels[2]],
+    total: mockModels[2].price,
   },
 ];
